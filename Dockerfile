@@ -1,17 +1,26 @@
 FROM ubuntu:trusty
 MAINTAINER George Lewis <schvin@schvin.net>
 
-ENV REFRESHED_AT 2014-10-07
+# dependent on ENV definitions for DOMAIN and RELAY
+
+ENV REFRESHED_AT 2014-11-18
 RUN apt-get update --fix-missing -y && apt-get upgrade -y 
-RUN apt-get install -y mutt fetchmail w3m gnupg exim
+RUN apt-get install -y ssmtp mutt w3m gnupg procmail
 
-RUN groupadd mail
-RUN useradd mail -g mail -d /home/mail
-RUN mkdir -p /home/mail/.newsbeuter
-RUN chown -R mail:mail /home/mail
+RUN groupadd s-mail
+RUN useradd s-mail -g s-mail -d /home/s-mail
+RUN mkdir -p /home/s-mail
+RUN chown -R s-mail:s-mail /home/s-mail
 
-ENV HOME /home/mail
-USER mail
-WORKDIR /home/mail
+#RUN perl -p -i -e 's/mailhub=.*/mailhub=$RELAY/' /etc/ssmtp/ssmtp.conf
+#RUN perl -p -i -e 's/^#rewriteDomain=.*/rewriteDomain=$DOMAIN/' /etc/ssmtp/ssmtp.conf
+#RUN perl -p -i -e 's/^hostname=.*/hostname=$DOMAIN/' /etc/ssmtp/ssmtp.conf
+#RUN perl -p -i -e 's/^#(FromLineOverride=YES)/$1/' /etc/ssmtp/ssmtp.conf
+#ADD etc/ssmtp.conf /etc/ssmtp/ssmtp.conf
 
-#ENTRYPOINT ["/usr/bin/mutt"]
+ENV HOME /home/s-mail
+USER s-mail
+WORKDIR /home/s-mail
+
+CMD ["-f", "~/Mail/inbox"]
+ENTRYPOINT ["/usr/bin/mutt"]
