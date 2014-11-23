@@ -17,8 +17,9 @@ Create `.muttrc`, include `set sendmail="/usr/sbin/ssmtp"`
 #### Routine use:
 ```
 cd ~/homedir-mutt
-docker run -it -v `pwd`:/home/s-mail:rw --name=$USER-mail getmail
-docker run -it --link $USER-mail:mail --rm=true --volumes-from=$USER-mail mutt
+docker run -it -v `pwd`:/home/s-mail:rw --rm=true schvin/mutt
+# for getmail:
+bin/loop.sh
 
 #### Archive:
 
