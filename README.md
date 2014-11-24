@@ -28,7 +28,6 @@ bin/loop.sh
 #docker run -it --link $USER-exim:exim --rm=true --volumes-from=$USER-exim getmail
 #docker run -it --link $USER-exim:exim --rm=true --volumes-from=$USER-exim mutt
 
-# syslog
 #docker run -it --link $USER-exim:exim --rm=true --volumes-from=$USER-exim fetchmail
 #fetchmail -N -b 100 -B 100 -d 15 -K -S $EXIM_PORT_25_TCP_ADDR
 #fetchmail -N -b 100 -B 100 -d 30 -k -S $EXIM_PORT_25_TCP_ADDR
@@ -38,17 +37,13 @@ bin/loop.sh
 ```
 XXX:
 
-Deal with default config?
-Deal with cert issues?
-Deal with fetching config/gpg ?
-Deal with relay settings
-deal with TERM XXXX ?
-deal with syslog
-deal with crons for fetchmail
-populate .fetchmailrc
-chmod 700 ~/.fetchmailrc
-max_messages_per_session
-syslog
-saner way to re-run getmail without overlapping on max_messages_per_session?
-link to howtos/examples on the app configs
-note about removing old container, or restarting it
+to address:
+- syslog
+- default configs?
+- cert issues?
+- fetching config/gpg ?
+- relay settings
+- term issues
+- getmail max_messages_per_session
+- link to howtos/examples on the app configs
+- note about removing old container, or restarting it
