@@ -18,10 +18,12 @@ Create `.muttrc`, include `set sendmail="/usr/sbin/ssmtp"`
 ```
 cd ~/homedir-mutt
 docker run -it -v `pwd`:/home/s-mail:rw --rm=true --name=$USER-mail schvin/mutt
-# for getmail:
-bin/loop.sh
+```
 
 #### Archive:
+
+# if built-in imap or pop3 in mutt are not sufficient, you can use getmail, if needed:
+```bin/loop.sh```
 
 ```
 #docker run -P -it -d -v `pwd`:/home/s-mail:rw --name=$USER-exim exim
