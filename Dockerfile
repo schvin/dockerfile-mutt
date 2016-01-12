@@ -1,9 +1,9 @@
-FROM ubuntu:trusty
+FROM ubuntu:latest
 MAINTAINER George Lewis <schvin@schvin.net>
 
 # dependent on ENV definitions for DOMAIN and RELAY
 
-ENV REFRESHED_AT 2014-11-18
+ENV REFRESHED_AT 2016-01-12
 RUN apt-get update --fix-missing -y && apt-get upgrade -y 
 RUN apt-get install -y ssmtp mutt w3m gnupg procmail
 
