@@ -3,9 +3,9 @@ MAINTAINER George Lewis <schvin@schvin.net>
 
 # dependent on ENV definitions for DOMAIN and RELAY
 
-ENV REFRESHED_AT 2016-01-12
+ENV REFRESHED_AT 2016-01-18
 RUN apt-get update --fix-missing -y && apt-get upgrade -y 
-RUN apt-get install -y ssmtp mutt w3m gnupg procmail
+RUN apt-get install -y ssmtp mutt w3m gnupg procmail pgpewrap
 
 RUN groupadd s-mail
 RUN useradd s-mail -g s-mail -d /home/s-mail
