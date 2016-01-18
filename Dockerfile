@@ -5,12 +5,13 @@ MAINTAINER George Lewis <schvin@schvin.net>
 
 ENV REFRESHED_AT 2016-01-18
 RUN apt-get update --fix-missing -y && apt-get upgrade -y 
-RUN apt-get install -y ssmtp mutt w3m gnupg procmail pgpewrap
+RUN apt-get install -y ssmtp mutt w3m gnupg procmail
 
 RUN groupadd s-mail
 RUN useradd s-mail -g s-mail -d /home/s-mail
 RUN mkdir -p /home/s-mail
 RUN chown -R s-mail:s-mail /home/s-mail
+RUN ln -s /usr/lib/mutt/pgpewrap /usr/bin/pgpewrap
 
 #RUN perl -p -i -e 's/mailhub=.*/mailhub=$RELAY/' /etc/ssmtp/ssmtp.conf
 #RUN perl -p -i -e 's/^#rewriteDomain=.*/rewriteDomain=$DOMAIN/' /etc/ssmtp/ssmtp.conf
