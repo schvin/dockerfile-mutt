@@ -5,7 +5,7 @@ MAINTAINER George Lewis <schvin@schvin.net>
 
 ENV REFRESHED_AT 2018-05-31
 RUN apt-get update --fix-missing -y && apt-get upgrade -y 
-RUN apt-get install -y ssmtp mutt w3m gnupg procmail
+RUN apt-get install -y ssmtp mutt w3m gnupg procmail nvi
 
 RUN groupadd s-mail
 RUN useradd s-mail -g s-mail -d /home/s-mail
