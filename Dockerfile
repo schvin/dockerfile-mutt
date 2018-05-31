@@ -3,7 +3,7 @@ MAINTAINER George Lewis <schvin@schvin.net>
 
 # dependent on ENV definitions for DOMAIN and RELAY
 
-ENV REFRESHED_AT 2016-01-18
+ENV REFRESHED_AT 2018-05-31
 RUN apt-get update --fix-missing -y && apt-get upgrade -y 
 RUN apt-get install -y ssmtp mutt w3m gnupg procmail
 
