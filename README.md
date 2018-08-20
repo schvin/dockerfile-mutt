@@ -12,9 +12,8 @@ ln -s ~/Mail ~/mail
 
 Create `.muttrc`, include `set sendmail="/usr/sbin/ssmtp"`
 
-```
-
 #### Routine use:
+
 ```
 cd ~/homedir-mutt
 docker run -it -v `pwd`:/home/s-mail:rw --rm=true --name=$USER-mail schvin/mutt
@@ -35,11 +34,9 @@ docker run -it -v `pwd`:/home/s-mail:rw --rm=true --name=$USER-mail schvin/mutt
 #fetchmail -N -b 100 -B 100 -d 30 -k -S $EXIM_PORT_25_TCP_ADDR
 #fetchmail -b 100 -B 100 -k -F -S $EXIM_PORT_25_TCP_ADDR
 #fetchmail -a -N -b 100 -B 100 -d 15 -K -S $EXIM_PORT_25_TCP_ADDR
-
 ```
-XXX:
 
-to address:
+To clean up:
 - syslog
 - default configs?
 - cert issues?
